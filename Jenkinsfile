@@ -16,6 +16,7 @@ pipeline {
     stage('Push image') {
       agent { docker {
         image 'openjdk:7'
+        }
       }
       steps {
         script {
