@@ -20,7 +20,7 @@ pipeline {
       }
       steps {
         script {
-    	  docker.withRegistry('https://registry.hub.docker.com', 'my-docker-hub-credentials') {
+    	  docker.withRegistry('', 'my-docker-hub-credentials') {
     	    def app = docker.build("lchomatek/zpu-jenkins-test")
     	    app.push("latest")
       	  }
