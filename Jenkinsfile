@@ -14,7 +14,9 @@ pipeline {
 
     
     stage('Push image') {
-      agent any
+      agent { docker {
+        image 'openjdk:7'
+      }
       steps {
         script {
     	  docker.withRegistry('https://registry.hub.docker.com', 'my-docker-hub-credentials') {
