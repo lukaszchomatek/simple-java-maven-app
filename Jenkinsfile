@@ -14,13 +14,17 @@ pipeline {
     }
 
     stage('Build image') {
-      app = docker.build("lchomatek/jenkins-test')
+      steps {
+        app = docker.build("lchomatek/jenkins-test')
+      }
     }
     
     stage('Push image') {
-    	docket.withRegistry('https://registry.hub.docker.com', 'my-docker-hub-credentials') {
-    	  app.push("latest")
-    	}
+      steps {
+    	  docket.withRegistry('https://registry.hub.docker.com', 'my-docker-hub-credentials') {
+    	    app.push("latest")
+      	  }
+      }
     }
   }
 }
